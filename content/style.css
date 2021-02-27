@@ -1,0 +1,164 @@
+body {
+    background-color: black;
+    color           : white;
+}
+
+#box {
+    height: 502px;
+}
+
+#board {
+    padding: 20px;
+}
+
+#home,
+#time,
+#vistor {
+
+    display : inline-block;
+    overflow: hidden;
+}
+
+#home,
+#vistor {
+    width: 616px;
+}
+
+#time {
+    max-width: 25%;
+    width    : 25%;
+}
+
+#mapname {
+    position: relative;
+    left    : 1.5vw;
+}
+
+#vistor .name {
+    margin-left : auto;
+    margin-right: 0;
+}
+
+#vistor .score {
+    position     : relative;
+    border-radius: 1rem;
+    width        : 20%;
+    margin-left  : auto;
+    margin-right : 30px;
+}
+
+#vistor .controls {
+    float: right;
+    left : -3vw;
+}
+
+#home .score {
+
+    border-radius: 1rem;
+    width        : 20%;
+    margin-left  : 30px;
+    margin-right : auto;
+}
+
+#home .controls {
+    float   : left;
+    position: relative;
+    left    : 0vw;
+}
+
+#time .controls {
+    float       : right;
+    position    : relative;
+    margin-left : 0px;
+    margin-right: auto;
+}
+
+.name,
+.score {
+    text-align      : center;
+    font-size       : 2vw;
+    background-color: red;
+    border-radius   : 1rem;
+    padding         : 5px;
+    opacity         : 0.7;
+    width           : 50%;
+}
+
+.score {
+    text-align: center;
+    font-size : 6vw;
+    z-index   : -10;
+    margin-top: 10px;
+}
+
+#mapname {
+    text-align: center;
+    font-size : 3vw;
+}
+
+#timer {
+    text-align: center;
+    position  : relative;
+    left      : 2.5vw;
+    font-size : 9vw;
+    z-index   : -10;
+}
+
+.glyphicon {
+    cursor: pointer;
+}
+
+.controls {
+    /*display: none;*/
+    visibility: hidden;
+    z-index   : 100;
+}
+
+.control:hover .controls {
+    /*display: block;*/
+    visibility: visible;
+}
+
+.resetscore,
+.plusscore,
+.minusscore,
+#resettimer,
+#plus,
+#minus,
+#play {
+    font-size: 1.5vw;
+}
+
+[contenteditable] {
+    -webkit-user-select: text;
+    user-select        : text;
+}
+
+
+.list-group {
+    margin: auto;
+    width : 55%;
+}
+
+.list-group-item.active {
+    font-weight: bold;
+    font-size: 18px3;
+}
+
+.list-group-item {
+    text-align: center;
+    color     : black;
+    opacity : 0.9;
+    font-size: 16px;
+}
+
+#header-s {
+
+    height: 35px;
+}
+
+.number {
+width: 15px;
+    margin: 5px;
+   background-color: cornflowerblue;
+}
