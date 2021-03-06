@@ -1,148 +1,60 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/style.css" rel="stylesheet" />
     <script src="scripts/jquery-3.1.1.min.js"></script>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-        }
-
-        #home, #time, #vistor {
-            display: inline-block;
-            overflow: hidden;
-        }
-
-        #home, #vistor {
-            width: 49%;
-            max-width: 49%;
-        }
-
-        #time {
-            max-width: 25%;
-            width: 25%;
-        }
-
-
-        #mapname {
-            position: relative;
-            left: 1.5vw;
-        }
-
-
-        #vistor .score {
-            position: relative;
-            left: 1.12vw;
-        }
-
-        #vistor .controls {
-            float: right;
-            position: relative;
-            left: -3vw;
-        }
-
-        #home .score {
-            position: relative;
-            left: -1.12vw;
-        }
-
-        #home .controls {
-            float: left;
-            position: relative;
-            left: 3vw;
-        }
-
-        #time .controls {
-            float: right;
-            position: relative;
-            /*left: -3vw;*/
-        }
-
-        .name, .score {
-            text-align: center;
-            font-size: 3vw;
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        .score {
-            text-align: center;
-            font-size: 8vw;
-            z-index: -10;
-        }
-
-        #mapname {
-            text-align: center;
-            font-size: 3vw;
-        }
-
-        #timer {
-            text-align: center;
-            position: relative;
-            left: 2.5vw;
-            font-size: 9vw;
-            z-index: -10;
-        }
-
-        .glyphicon {
-            cursor: pointer;
-        }
-
-        .controls {
-            /*display: none;*/
-            visibility: hidden;
-            z-index: 100;
-        }
-
-        .control:hover .controls {
-            /*display: block;*/
-            visibility: visible;
-        }
-        
-        .resetscore, .plusscore, .minusscore, #resettimer, #plus, #minus, #play {
-            font-size: 2.25vw;
-        }
-        [contenteditable] {
-            -webkit-user-select: text;
-            user-select: text;
-        }
-    </style>
 </head>
+
 <body>
-    <div id="home">
-        <div class="name" contenteditable="true">R.N. IMPERIA 57</div>
+    <div id="box"></div>
+    <div id="board">
+        <div id="home">
 
-        <div class="control">
-            <div class="controls">
-                <div class="resetscore"><span class="glyphicon glyphicon-repeat"></span></div>
-                <div class="plusscore"><span class="glyphicon glyphicon-plus-sign"></span></div>
-                <div class="minusscore"><span class="glyphicon glyphicon-minus-sign"></span></div>
+            <div class="name" contenteditable="true">
+                <img src="images/Logo_como_nuoto_score.png" height="40px" width="40px" />
+                <span class="title">COMO NUOTO</span>
             </div>
-            <div class="score"></div>
+            <div class="control">
+                <div class="controls">
+                    <div class="resetscore"><span class="glyphicon glyphicon-repeat"></span></div>
+                    <div class="plusscore"><span class="glyphicon glyphicon-plus-sign"></span></div>
+                    <div class="minusscore"><span class="glyphicon glyphicon-minus-sign"></span></div>
+                </div>
+                <div class="score"></div>
+            </div>
+           
+        </div>
+
+        <div id="vistor">
+
+            <div class="name" contenteditable="true">
+                <img src="images/Logo_aquatica_score.png" height="40px" width="40px" />
+                <span class="title">AQUATICA</span>
+            </div>
+            <div class="control">
+                <div class="controls">
+                    <div class="resetscore"><span class="glyphicon glyphicon-repeat"></span></div>
+                    <div class="plusscore"><span class="glyphicon glyphicon-plus-sign"></span></div>
+                    <div class="minusscore"><span class="glyphicon glyphicon-minus-sign"></span></div>
+                </div>
+                
+                <div class="score"></div>
+            </div>
+            
+
         </div>
 
     </div>
-
-    <div id="vistor">
-
-        <div class="name" contenteditable="true">COMO NUOTO RECOARO</div>
-        <div class="control">
-            <div class="controls">
-                <div class="resetscore"><span class="glyphicon glyphicon-repeat"></span></div>
-                <div class="plusscore"><span class="glyphicon glyphicon-plus-sign"></span></div>
-                <div class="minusscore"><span class="glyphicon glyphicon-minus-sign"></span></div>
-            </div>
-            <div class="score"></div>
-        </div>
-    </div>
-    <!--</div>-->
 </body>
+
 </html>
+
 <script>
     if (typeof (EBL) === "undefined") {
         EBL = {};
@@ -169,7 +81,7 @@
                 // Onward default
                 _minutes = 8;
                 _seconds = 15;
-            } else  {
+            } else {
                 _minutes = 45;
                 _seconds = 0;
             }
@@ -264,7 +176,7 @@
                 } else {
                     _distance = now - _countdown;
                 }
-                
+
             } else {
                 _countdown = now + _distance;
             }
@@ -275,13 +187,10 @@
             var minutes = Math.floor((_distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((_distance % (1000 * 60)) / 1000);
 
-            if (minutes >= _minutes && seconds >= _seconds)
-            {
+            if (minutes >= _minutes && seconds >= _seconds) {
                 minutes = _minutes;
                 seconds = _seconds;
             }
-                
-
 
             // Display the result in the element with id="demo"
             //document.getElementById("timer").innerHTML = days + "d " + hours + "h "
@@ -292,8 +201,8 @@
                 if (_distance < 0) {
                     $("#timer").html("0:00");
                 }
-            } 
-            
+            }
+
             setTimeout(updateTimer, 500);
         }
         function getDuration() {
